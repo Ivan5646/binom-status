@@ -1,0 +1,86 @@
+http://sandbox.skidkatop.ru/shlegel/status/
+
+Сделать
+- success message ок? https://stackoverflow.com/questions/4368946/jquery-callback-for-multiple-ajax-calls
+- error message  ок?
+- лоадер с прогрессом
+- выбор бинома
+- инпут event1
+
+
+смотри, нужно сделать интерфейс с двумя инпутами: click id и status
+и кнопкой "сменить статус"
+при нажатии на кнопку должен делаться запрос к биному в таком виде: http://e.losmetas.com/click.php?cnv_id={click id}&cnv_status={status}
+поля не должны быть пустыми
+будет идеально, если эта штука сможет обрабатывать большой список click id
+
+только сделай ее для евробинома
+Евгений Мета Сипиэй, [11.01.18 14:10]
+т.е. вот так  http://e.losmetas.com/click.php?cnv_id={click id}&cnv_status={status}
+Mikhail, [11.01.18 14:10]
+понтяно
+Евгений Мета Сипиэй, [11.01.18 14:11]
+и положи в корне папки с лендами на евро
+
+
+Проблемы
+- preventDefaut устаряняет перезагрузку страницы, но ошибки в консоле: Failed to load http://e.losmetas.com/click.php?cnv_id=4f3bfb4fva84e8&cnv_status=statusTest: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://sandbox.skidkatop.ru' is therefore not allowed access.
+http://joxi.ru/KAxBoqEC4ezDzm
+https://stackoverflow.com/questions/20035101/why-does-my-javascript-get-a-no-access-control-allow-origin-header-is-present  CORS?
+
+
+Вопросы
+- Как реализовать изменение по списку id. Делать несколько запросов? В одном запросе не сработает
+
+
+
+- Ajax. В api нет параметра cnv_id ?
+Обязательные параметры id.
+https://docs.binom.org/api.php  Вы можете менять параметры URL'а при API-запросе. Разберем эти параметры.
+Добавление, изменение, удаление, восстановление, получение списка офферов и лендингов
+
+- к какому url нужно делать запрос? http://tracker.com/index.php  ??
+
+- в итоге в адресной строке http://sandbox.skidkatop.ru/shlegel/status/?cnv_id=4f3bfb4fva84e8&cnv_status=newStat 
+Получаетcя запрос делается к /sandbox.skidkatop.ru ??
+
+
+
+http://articles.health-beauty.press/mslim/cz/oz/?clickid={clickid}
+
+как тестировать?  есть тестовая компания
+авторизация? не надо
+
+
+http://e.losmetas.com/?page=Conversions&api_key=1200000146dc1cf20a7ec7f225629d9125430b40  Лид Json
+
+тестовый лид
+http://joxi.ru/E2pE1x8SBqzYjA 
+25621b4a99la0c  click id
+http://e.losmetas.com/click.php?cnv_id=25621b4a99la0c&cnv_status=reject   рабочий запрос
+
+
+1) взять данные с формы или отдельно с инпутов
+2) аяксом отправлять на php-файл?
+3) в php-файле делать запрос
+Либо
+1) взять данные с инпутов
+2) делать запрос с помощью php
+
+
+
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data  php form send
+http://fczaja.blogspot.ru/2011/07/php-how-to-send-post-request-with.html
+
+https://stackoverflow.com/questions/2138527/php-curl-http-post-sample-code
+https://davidwalsh.name/curl-post
+
+
+
+http://joxi.ru/8AnEonySqa5ZX2
+http://joxi.ru/KAxBoqEC4ezDzm
+
+
+.submit(function(e) {
+        e.preventDefault();
+
