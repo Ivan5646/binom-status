@@ -67,6 +67,19 @@ body {
     border-radius: 5px;
 }
 
+.loader {
+	background-image: url(img/loder.gif);
+	width: 64px;
+	height: 64px;
+	margin: 0 auto;
+	position: relative;
+	top: 85px;
+}
+
+.hideLoader {
+	display: none;
+}
+
 @media screen and (max-width: 600px) {
 	.wrapper {
 		position: static;

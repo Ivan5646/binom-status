@@ -9,6 +9,7 @@
 <body>
 
 <div class="wrapper">
+    <div class="loader hideLoader"></div>
     <form class="status">
         <textarea  type="text" name="cnv_id" id="cnv_id" class="status_click" placeholder="click id" rows="4" cols="70"></textarea>
         <input type="text" name="cnv_status" id="cnv_status" class="status_new" placeholder="status">
@@ -44,12 +45,19 @@
                 $.ajax({
                     type: "post",
                     url: value,
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    beforeSend: function(){
+                        $(".loader").toggleClass("hideLoader");
+                    },
+                    complete: function(){
+                        $(".loader").toggleClass("hideLoader");
+                    },
                     data: {
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
                         "action" : "offer_edit",
-                    },
-                    error: function(){
-                        alert("ошибка " + value);
                     },
                     success: function(){
                         alert("статус изменен");
