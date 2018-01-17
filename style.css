@@ -75,6 +75,16 @@ body {
 	position: relative;
 	top: 85px;
 }
+.status_label {
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.status_country {
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
 
 .hideLoader {
 	display: none;

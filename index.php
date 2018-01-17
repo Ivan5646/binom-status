@@ -11,6 +11,12 @@
 <div class="wrapper">
     <div class="loader hideLoader"></div>
     <form class="status">
+        <div class="status_label">Выберите страну для Бинома</div>
+        <select class="status_country">
+              <option value="e">Европа</option>
+              <option value="r">Россия</option>
+              <option value="a">Азия</option>
+        </select>
         <textarea  type="text" name="cnv_id" id="cnv_id" class="status_click" placeholder="click id" rows="4" cols="70"></textarea>
         <input type="text" name="cnv_status" id="cnv_status" class="status_new" placeholder="status">
         <button class="status_change btn" type="submit">Сменить статус</button>
@@ -28,6 +34,7 @@
 <script type="">
 
     $(".status_change").click(function(){
+        var country = $(".status_country").val();
         var cnv_status = $("#cnv_status").val();
         idList = $("#cnv_id").val();
         idList = idList.split(" "); // becomes an array
@@ -35,7 +42,8 @@
         // create urls with input idclicks and statuses
         urls = [];
         for (var i = idList.length - 1; i >= 0; i--) {
-            urls.push("http://e.losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status)
+            urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status)
+            console.log(urls);
         }
     });
 
@@ -68,6 +76,7 @@
             $("#cnv_id").val("");
             $("#cnv_status").val("");
             $(".status").trigger("reset");
+//            alert("статус изменен");
         });
         return false;
     });

@@ -3,7 +3,7 @@ http://sandbox.skidkatop.ru/shlegel/status/
 Сделать
 - success message ок? https://stackoverflow.com/questions/4368946/jquery-callback-for-multiple-ajax-calls
 - error message  ок?
-- лоадер с прогрессом
+- лоадер с прогрессом ок(просто лоадер)
 - выбор бинома
 - инпут event1
 
