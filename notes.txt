@@ -1,12 +1,12 @@
 http://sandbox.skidkatop.ru/shlegel/status/
 
 Сделать
-- success message ок? https://stackoverflow.com/questions/4368946/jquery-callback-for-multiple-ajax-calls
-- error message  ок?
 - норм картинку лоадера
 
 
 Done
+- success message ок? https://stackoverflow.com/questions/4368946/jquery-callback-for-multiple-ajax-calls
+- error message  ок?  done fail
 - выбор бинома ok
 - инпут event1
 - лоадер с прогрессом ок(просто лоадер)

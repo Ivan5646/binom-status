@@ -62,9 +62,13 @@
                     },
                     beforeSend: function(){
                         $(".loader").toggleClass("hideLoader");
+                        $("body").toggleClass("opacity");
                     },
                     complete: function(){
-                        $(".loader").toggleClass("hideLoader");
+                        setTimeout(function(){
+                            $(".loader").toggleClass("hideLoader");
+                            $("body").toggleClass("opacity");
+                        }, 1500);
                     },
                     data: {
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
@@ -79,7 +83,6 @@
                         failed = true;
                     }
                 });
-
             })
         ).then(function(){
             $("#cnv_id").val("");

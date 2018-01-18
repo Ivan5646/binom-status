@@ -68,11 +68,12 @@ body {
 }
 
 .loader {
-	background-image: url(img/loder.gif);
-	width: 64px;
-	height: 64px;
-	margin: 0 auto;
+	background-image: url(img/loader.gif);
 	position: relative;
+	z-index: 5;
+	width: 90px;
+	height: 90px;
+	margin: 0 auto;
 	top: 85px;
 }
 .status_label {
@@ -85,9 +86,12 @@ body {
 	font-size: 20px;
 }
 
-
 .hideLoader {
 	display: none;
+}
+
+.opacity {
+	opacity: 0.5;
 }
 
 @media screen and (max-width: 600px) {
