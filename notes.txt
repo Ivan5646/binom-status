@@ -29,6 +29,11 @@ Mikhail, [11.01.18 14:10]
 
 
 Проблемы
+- как отследить обшибку, если какой-то стаутс не поменялся например?
+Ответы сервера несмотря на то что статус сменился или нет
+dataType: 'jsonp', fail function: {"readyState":4,"status":200,"statusText":"load"}
+dataType: 'json', fail function: {"readyState":0,"status":0,"statusText":"error"}
+
 - preventDefaut устаряняет перезагрузку страницы, но ошибки в консоле: Failed to load http://e.losmetas.com/click.php?cnv_id=4f3bfb4fva84e8&cnv_status=statusTest: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://sandbox.skidkatop.ru' is therefore not allowed access.
 http://joxi.ru/KAxBoqEC4ezDzm  Соответсвенно ajax error method выдает ошибку, но запрос успешен
 dataType: 'jsonp', eliminates cross origin error... but sitll ajax error callback is giving error (besause server responds with json data type)
@@ -38,11 +43,13 @@ https://stackoverflow.com/questions/5584923/a-cors-post-request-works-from-plain
 
 
 
+
+
 Вопросы
 Как просмотерть ответ сервера?
 API Binom При успешном выполнении изменения записи сервер отправляет json с параметром status: added, edited, restored. 
 server response(through ajax fail function): {"readyState":0,"status":0,"statusText":"error"}
-jsonp - fail {"readyState":4,"status":200,"statusText":"load"}
+
 
 - Как реализовать изменение по списку id. Делать несколько запросов? В одном запросе не сработает
 

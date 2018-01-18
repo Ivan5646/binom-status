@@ -65,19 +65,18 @@
                         $("body").toggleClass("opacity");
                     },
                     complete: function(){
-                        setTimeout(function(){
-                            $(".loader").toggleClass("hideLoader");
-                            $("body").toggleClass("opacity");
-                        }, 1500);
+                        $(".loader").toggleClass("hideLoader");
+                        $("body").toggleClass("opacity");
                     },
                     data: {
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
                         "action" : "offer_edit",
                     }
                 }).done(function(data) {
-                    //alert("done " + data);
+                    //alert("done " + data.status);
                 }).fail(function(data){
                     var myJSON = JSON.stringify(data);
+                    //alert("myJSON: " + myJSON);
                     if (data.status != 200) {
                         alert("fail " + data.status);
                         failed = true;
