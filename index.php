@@ -53,7 +53,7 @@
                 $.ajax({
                     type: "post",
                     url: value,
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     crossDomain: true,
                     xhrFields: {
                         withCredentials: true
@@ -67,14 +67,20 @@
                     data: {
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
                         "action" : "offer_edit",
-                    },
-                    error: function(){
-                        alert("ошибка в" + value);
-                    },
-                    success: function(){
-                        alert("статус изменен");
                     }
+//                    error: function(xhr, status, error) {
+//                        alert(xhr.responseText);
+//                    },
+//                    success: function(){
+//                        alert("статус изменен");
+//                    }
+                }).done(function(data) {
+                    alert("done " + data);
+                }).fail(function(data){
+                    var myJSON = JSON.stringify(data);
+                    alert("done " + myJSON);
                 });
+
             })
         ).then(function(){
             $("#cnv_id").val("");
