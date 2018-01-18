@@ -47,6 +47,8 @@
         }
     });
 
+    var failed = false;
+
     $(".status").submit(function(){
         $.when(
             $.each(urls, function(index, value){
@@ -69,11 +71,12 @@
                         "action" : "offer_edit",
                     }
                 }).done(function(data) {
-                    alert("done " + data);
+                    //alert("done " + data);
                 }).fail(function(data){
                     var myJSON = JSON.stringify(data);
                     if (data.status != 200) {
                         alert("fail " + data.status);
+                        failed = true;
                     }
                 });
 
@@ -82,7 +85,9 @@
             $("#cnv_id").val("");
             $("#cnv_status").val("");
             $(".status").trigger("reset");
-//            alert("статус изменен");
+            if (failed == false) {
+                alert("статус(ы) изменен(ы)");
+            }
         });
         return false;
     });
