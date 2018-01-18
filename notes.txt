@@ -42,10 +42,9 @@ https://stackoverflow.com/questions/5584923/a-cors-post-request-works-from-plain
 Как просмотерть ответ сервера?
 API Binom При успешном выполнении изменения записи сервер отправляет json с параметром status: added, edited, restored. 
 server response(through ajax fail function): {"readyState":0,"status":0,"statusText":"error"}
+jsonp - fail {"readyState":4,"status":200,"statusText":"load"}
 
 - Как реализовать изменение по списку id. Делать несколько запросов? В одном запросе не сработает
-
-
 
 - Ajax. В api нет параметра cnv_id ?
 Обязательные параметры id.

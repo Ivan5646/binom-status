@@ -68,17 +68,13 @@
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
                         "action" : "offer_edit",
                     }
-//                    error: function(xhr, status, error) {
-//                        alert(xhr.responseText);
-//                    },
-//                    success: function(){
-//                        alert("статус изменен");
-//                    }
                 }).done(function(data) {
                     alert("done " + data);
                 }).fail(function(data){
                     var myJSON = JSON.stringify(data);
-                    alert("done " + myJSON);
+                    if (data.status != 200) {
+                        alert("fail " + data.status);
+                    }
                 });
 
             })
