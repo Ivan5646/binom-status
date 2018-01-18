@@ -9,6 +9,13 @@
 <body>
 
 <div class="wrapper">
+    <div class="progress">
+        <span class="progress_current"></span>
+        <span>из</span>
+        <span class="progress_total"></span>
+    </div>
+
+
     <div class="loader hideLoader"></div>
     <form class="status">
         <div class="status_label">Выберите страну для Бинома</div>
@@ -37,6 +44,7 @@
         var country = $(".status_country").val();
         var cnv_status = $("#cnv_status").val();
         idList = $("#cnv_id").val();
+        idList = idList.trim(); // remove surrounding spaces
         idList = idList.split(" "); // becomes an array
 
         // create urls with input idclicks and statuses
@@ -48,8 +56,13 @@
     });
 
     var failed = false;
+    var idQuantity = 0;
+//    var idTotal = idList.length;
+
+
 
     $(".status").submit(function(){
+        $(".progress_total").html(idList.length);
         $.when(
             $.each(urls, function(index, value){
                 $.ajax({
@@ -65,8 +78,12 @@
                         $("body").toggleClass("opacity");
                     },
                     complete: function(){
-                        $(".loader").toggleClass("hideLoader");
-                        $("body").toggleClass("opacity");
+                        setTimeout(function(){
+                            $(".loader").toggleClass("hideLoader");
+                            $("body").toggleClass("opacity");
+                            idQuantity++;
+                            $(".progress_current").html(idQuantity);
+                        }, 2000);
                     },
                     data: {
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
@@ -87,6 +104,8 @@
             $("#cnv_id").val("");
             $("#cnv_status").val("");
             $(".status").trigger("reset");
+            idQuantity = 0;
+            //$(".progress_current").innerHTML = idQuantity;
             if (failed == false) {
                 alert("статус(ы) изменен(ы)");
             }
