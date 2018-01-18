@@ -53,7 +53,7 @@
                 $.ajax({
                     type: "post",
                     url: value,
-                    dataType: 'json',
+                    dataType: 'jsonp',
                     crossDomain: true,
                     xhrFields: {
                         withCredentials: true
