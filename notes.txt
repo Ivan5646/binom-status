@@ -4,8 +4,12 @@ http://sandbox.skidkatop.ru/shlegel/status/
 - success message ок? https://stackoverflow.com/questions/4368946/jquery-callback-for-multiple-ajax-calls
 - error message  ок?
 - лоадер с прогрессом ок(просто лоадер)
-- выбор бинома
+
+
+Done
+- выбор бинома ok
 - инпут event1
+
 
 
 смотри, нужно сделать интерфейс с двумя инпутами: click id и status
@@ -87,5 +91,4 @@ http://joxi.ru/KAxBoqEC4ezDzm
         e.preventDefault();
 
 
-
-4f3bfb4fva84e8 41ee0b4dubg622
+4f3bfb4fva84e8 41ee0b4dubg622 
