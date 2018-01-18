@@ -80,12 +80,12 @@
                         $(".wrapper").toggleClass("opacity");
                     },
                     complete: function(){
-                        setTimeout(function(){
+//                        setTimeout(function(){
                             $(".loader").toggleClass("hideLoader");
                             $("body").toggleClass("opacity");
                             idQuantity++;
                             $(".progress_current").html(idQuantity);
-                        }, 2000);
+//                        }, 2000);
                     },
                     data: {
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
@@ -108,9 +108,9 @@
             $(".status").trigger("reset");
             idQuantity = 0;
             //$(".progress_current").innerHTML = idQuantity;
-            if (failed == false) {
-                alert("статус(ы) изменен(ы)");
-            }
+//            if (failed == false) {
+//                alert("статус(ы) изменен(ы)");
+//            }
         });
         return false;
     });
