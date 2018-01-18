@@ -3,6 +3,12 @@ body {
 	background-color: #e6e6e6;
 }
 
+.container {
+	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 .wrapper {
 	max-width: 500px;
 	margin: 0 auto;
@@ -93,6 +99,16 @@ body {
 
 .opacity {
 	opacity: 0.5;
+}
+
+
+.progress {
+	font-size: 22px;
+	text-align: center;
+}
+
+.progress p {
+	margin-bottom: 8px;
 }
 
 @media screen and (max-width: 600px) {

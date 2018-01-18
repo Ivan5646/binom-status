@@ -1,7 +1,8 @@
 http://sandbox.skidkatop.ru/shlegel/status/
 
 Сделать
-- норм картинку лоадера
+- статус бар
+- верстка бара и т.п.
 
 
 Done
@@ -9,7 +10,6 @@ Done
 - error message  ок?  done fail
 - выбор бинома ok
 - инпут event1
-- лоадер с прогрессом ок(просто лоадер)
 
 
 

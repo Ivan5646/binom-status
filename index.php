@@ -8,14 +8,16 @@
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="progress">
+<div class="container">
+    <div class="progress hideLoader">
+        <p>Статусов изменено:</p>
         <span class="progress_current"></span>
         <span>из</span>
         <span class="progress_total"></span>
     </div>
+</div>
 
-
+<div class="wrapper">
     <div class="loader hideLoader"></div>
     <form class="status">
         <div class="status_label">Выберите страну для Бинома</div>
@@ -57,12 +59,12 @@
 
     var failed = false;
     var idQuantity = 0;
-//    var idTotal = idList.length;
-
+    //    var idTotal = idList.length;
 
 
     $(".status").submit(function(){
         $(".progress_total").html(idList.length);
+        $(".progress").toggleClass("hideLoader");
         $.when(
             $.each(urls, function(index, value){
                 $.ajax({
@@ -75,7 +77,7 @@
                     },
                     beforeSend: function(){
                         $(".loader").toggleClass("hideLoader");
-                        $("body").toggleClass("opacity");
+                        $(".wrapper").toggleClass("opacity");
                     },
                     complete: function(){
                         setTimeout(function(){
