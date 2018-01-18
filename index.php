@@ -30,7 +30,6 @@
 
 </div>
 
-
 <script src="//code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script type="">
 
@@ -54,6 +53,7 @@
                 $.ajax({
                     type: "post",
                     url: value,
+                    dataType: 'jsonp',
                     crossDomain: true,
                     xhrFields: {
                         withCredentials: true
@@ -68,6 +68,9 @@
                         "api_key": "1600000146dc1cf20a7ec7f225629d9125430b40",
                         "action" : "offer_edit",
                     },
+                    error: function(){
+                        alert("ошибка в" + value);
+                    },
                     success: function(){
                         alert("статус изменен");
                     }
@@ -77,7 +80,7 @@
             $("#cnv_id").val("");
             $("#cnv_status").val("");
             $(".status").trigger("reset");
-            alert("статус изменен");
+//            alert("статус изменен");
         });
         return false;
     });
