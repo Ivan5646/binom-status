@@ -28,7 +28,7 @@
         </select>
         <textarea  type="text" name="cnv_id" id="cnv_id" class="status_click" placeholder="click id" rows="4" cols="70" required></textarea>
         <input type="text" name="cnv_status" id="cnv_status" class="status_new" placeholder="status" required>
-        <input type="text" name="event1" class="status_event1" placeholder="event1">
+        <input type="text" name="event1" id="event1" class="status_event1" placeholder="event1">
         <button class="status_change btn" type="submit">Сменить статус</button>
     </form>
 
@@ -45,16 +45,27 @@
     $(".status_change").click(function(){
         var country = $(".status_country").val();
         var cnv_status = $("#cnv_status").val();
+        var event1 = "&event1=" + $("#event1").val();
+
         idList = $("#cnv_id").val();
         idList = idList.trim(); // remove surrounding spaces
         idList = idList.split(" "); // becomes an array
 
         // create urls with input idclicks and statuses
         urls = [];
-        for (var i = idList.length - 1; i >= 0; i--) {
-            urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status)
-            //console.log(urls);
+        if  ( $("#event1").val() == "" ) {
+            for (var i = idList.length - 1; i >= 0; i--) {
+                urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status)
+//                console.log("event1 has no value: " + urls);
+            }
+        }else{
+            for (var i = idList.length - 1; i >= 0; i--) {
+                urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status + event1)
+//                console.log("event1 has value: " + urls);
+            }
         }
+
+
     });
 
     var failed = false;
@@ -81,10 +92,10 @@
                     },
                     complete: function(){
 //                        setTimeout(function(){
-                            $(".loader").toggleClass("hideLoader");
-                            $("body").toggleClass("opacity");
-                            idQuantity++;
-                            $(".progress_current").html(idQuantity);
+                        $(".loader").toggleClass("hideLoader");
+                        $("body").toggleClass("opacity");
+                        idQuantity++;
+                        $(".progress_current").html(idQuantity);
 //                        }, 2000);
                     },
                     data: {
