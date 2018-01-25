@@ -1,8 +1,8 @@
 http://sandbox.skidkatop.ru/shlegel/status/
+http://metashop.top/statuses/status/
 
 Сделать
-- статус бар
-- верстка бара и т.п.
+- поправить исчезновение статус бара после повторного запроса
 
 
 Done
@@ -10,6 +10,8 @@ Done
 - error message  ок?  done fail
 - выбор бинома ok
 - инпут event1
+- статус бар
+- верстка бара и т.п.
 
 
 
@@ -114,6 +116,12 @@ decline 0
 
 https://docs.binom.org/events.php
 
+1) будет ли работать такой запрос?
+http://e.losmetas.com/click.php?cnv_id={click id}&cnv_status={status}&event1={1}
+2) по клику меняю status и event1, а не по компании. Как мне просмотреть event1 у click id?
+
+у меня запрос такого вида http://e.losmetas.com/click.php?cnv_id={click id}&cnv_status={status}&event1={1}
+то есть я меняю event1 по click id, верно?
 
 
 

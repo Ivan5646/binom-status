@@ -27,7 +27,7 @@
             <option value="a">Азия</option>
         </select>
         <textarea  type="text" name="cnv_id" id="cnv_id" class="status_click" placeholder="click id" rows="4" cols="70" required></textarea>
-        <input type="text" name="cnv_status" id="cnv_status" class="status_new" placeholder="status" required>
+        <input type="text" name="cnv_status" id="cnv_status" class="status_new" placeholder="status">
         <input type="text" name="event1" id="event1" class="status_event1" placeholder="event1">
         <button class="status_change btn" type="submit">Сменить статус</button>
     </form>
@@ -42,7 +42,16 @@
 <script src="//code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script type="">
 
-    $(".status_change").click(function(){
+    // $(".status_change").click(function(){
+
+    // });
+
+    var failed = false;
+    var idQuantity = 0;
+    //    var idTotal = idList.length;
+
+
+    $(".status").submit(function(){
         var country = $(".status_country").val();
         var cnv_status = $("#cnv_status").val();
         var event1 = "&event1=" + $("#event1").val();
@@ -56,24 +65,24 @@
         if  ( $("#event1").val() == "" ) {
             for (var i = idList.length - 1; i >= 0; i--) {
                 urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status)
-//                console.log("event1 has no value: " + urls);
+                console.log("event1 has no value: " + urls);
             }
-        }else{
+        }else if ( $("#cnv_status").val() == "") {
             for (var i = idList.length - 1; i >= 0; i--) {
-                urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status + event1)
-//                console.log("event1 has value: " + urls);
+                urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + event1)
+                console.log("event1 has value: " + urls);
             }
         }
+        else if ( $("#event1").val() != "" && $("#cnv_status").val() != "") {
+            for (var i = idList.length - 1; i >= 0; i--) {
+                urls.push("http://" + country + ".losmetas.com/click.php?cnv_id=" + idList[i] + "&cnv_status=" + cnv_status + event1)
+                console.log("event and staus: " + urls);
+            }
+        }else if ( $("#event1").val() == "" && $("#cnv_status").val() == "" ) {
+            alert("Заполните одно из следующих полей: status, event1");
+            return
+        }
 
-
-    });
-
-    var failed = false;
-    var idQuantity = 0;
-    //    var idTotal = idList.length;
-
-
-    $(".status").submit(function(){
         $(".progress_total").html(idList.length);
         $(".progress").toggleClass("hideLoader");
         $.when(
@@ -93,7 +102,7 @@
                     complete: function(){
 //                        setTimeout(function(){
                         $(".loader").toggleClass("hideLoader");
-                        $("body").toggleClass("opacity");
+                        $(".wrapper").toggleClass("opacity");
                         idQuantity++;
                         $(".progress_current").html(idQuantity);
 //                        }, 2000);
