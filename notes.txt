@@ -104,4 +104,17 @@ http://joxi.ru/KAxBoqEC4ezDzm
         e.preventDefault();
 
 
-4f3bfb4fva84e8 41ee0b4dubg622 
+-----“аск по смене event1----
+status в rulandnings
+
+Ћиды за окт€брь, но€брь, 
+не подставл€ть event1 в запросе если инпут пустой
+confirm 1
+decline 0
+
+https://docs.binom.org/events.php
+
+
+
+
+4f3bfb4fva84e8 41ee0b4dubg622 25621b4a99la0c
